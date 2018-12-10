@@ -1,0 +1,16 @@
+cam0:
+  cam_overlaps: [1, 3]
+  camera_model: pinhole
+  distortion_coeffs: [0.29167299,-0.6072107,-0.00083053,0.00087051]
+    
+#    radial-tangential (radtan) 
+#   (distortion_coeffs: [k1 k2 r1 r2])  k1 k2 径向畸变
+#      equidistant (equi)
+#      (distortion_coeffs: [k1 k2 k3 k4])
+
+
+  distortion_model: radtan
+  intrinsics: [475.03888642,474.29264844,219.85007813,311.58477823]
+  resolution: [480, 640]
+  rostopic: /cam0/image_raw
+

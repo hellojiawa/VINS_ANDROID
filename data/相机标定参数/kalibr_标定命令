@@ -1,0 +1,14 @@
+source ~/kalibr_workspace/devel/setup.bash
+
+//打包
+kalibr_bagcreater --folder dataset --output-bag s7.bag
+
+//解包
+kalibr_bagextractor --image-topics /cam0/image_raw --imu-topics /imu0 --bag dynamic.bag --output-folder output_bag
+
+//相机标定
+kalibr_calibrate_cameras --target checkerboard_7x8.yaml --bag s7.bag --models pinhole-radtan --topics /cam0/image_raw
+
+//相机 imu标定
+kalibr_calibrate_imu_camera --target checkerboard_7x8.yaml --cam camchain.yaml --imu imu_adis16448.yaml --bag s7.bag --bag-from-to 5 65
+
